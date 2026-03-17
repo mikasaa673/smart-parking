@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ── Auto-sync with video feed ─────────────────────────────────────────
     // Slot grid refreshes every 3 s (fast DB read — keeps UI near real-time).
-    // Detection runs every 5 s (YOLOv8 inference — heavier, so slightly less frequent).
+    // Detection runs every 5 s (OpenCV processing — heavier, so slightly less frequent).
     setInterval(loadSlots, 3_000);
     async function runDetect() {
         try { await fetch(`${API_BASE}/detect`, { method: 'POST' }); } catch (_) { }

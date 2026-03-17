@@ -1,12 +1,12 @@
 # 🅿️ Smart Parking Availability System
 
-A real-time parking management system using **Flask**, **OpenCV**, **YOLOv5**, **MySQL**, and **Chart.js**.
+A real-time parking management system using **Flask**, **OpenCV**, **MySQL**, and **Chart.js**.
 
 ---
 
 ## 🎯 Features
 
-- **Vehicle Detection** – YOLOv5 + OpenCV for real-time occupancy detection
+- **Vehicle Detection** – OpenCV adaptive thresholding for real-time occupancy detection
 - **Slot Reservation** – Book parking slots with double-booking prevention
 - **Overstay Detection** – Automatic alerting when vehicles exceed booking time
 - **Admin Dashboard** – Live charts, occupancy analytics, and alert panels
@@ -24,7 +24,7 @@ smart_parking/
 ├── README.md                     # This file
 ├── detection/
 │   ├── __init__.py
-│   └── vehicle_detection.py      # YOLOv5 vehicle detector
+│   └── vehicle_detection.py      # OpenCV vehicle detector
 ├── prediction/
 │   ├── __init__.py
 │   └── forecasting.py            # Occupancy prediction (Linear Regression)
@@ -154,5 +154,5 @@ curl -X POST http://localhost:5000/reserve \
   set VIDEO_SOURCE=parking_feed.mp4
   python app.py
   ```
-- YOLOv5 weights are downloaded automatically on first run.
+- OpenCV processes video frames directly for vehicle detection.
 - For academic projects, the simulation mode provides realistic behaviour out of the box.
