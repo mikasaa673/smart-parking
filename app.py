@@ -50,6 +50,7 @@ DB_CONFIG = {
     'user': os.getenv('DB_USER', 'root'),
     'password': os.getenv('DB_PASSWORD', 'root'),
     'database': os.getenv('DB_NAME', 'smart_parking'),
+    'ssl_disabled': False,
 }
 
 TOTAL_SLOTS = 68
