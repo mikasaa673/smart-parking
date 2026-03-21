@@ -45,21 +45,13 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s  %(levelname)-8s  %(name)s  %(message)s')
 logger = logging.getLogger(__name__)
 
-# DB_CONFIG = {
-#     'host': os.getenv('DB_HOST', 'localhost'),
-#     'user': os.getenv('DB_USER', 'root'),
-#     'password': os.getenv('DB_PASSWORD', 'root'),
-#     'database': os.getenv('DB_NAME', 'smart_parking'),
-#     'ssl_disabled': False,
-# }
 
 DB_CONFIG = {
-    'host': os.getenv('DB_HOST', 'localhost'),
-    'port': int(os.getenv('DB_PORT', '3306')),
-    'user': os.getenv('DB_USER', 'root'),
-    'password': os.getenv('DB_PASSWORD', 'root'),
-    'database': os.getenv('DB_NAME', 'smart_parking'),
-    'ssl_disabled': False,
+    'host': os.environ.get('MYSQLHOST', 'localhost'),
+    'port': int(os.environ.get('MYSQLPORT', '3306')),
+    'user': os.environ.get('MYSQLUSER', 'root'),
+    'password': os.environ.get('MYSQLPASSWORD', ''),
+    'database': os.environ.get('MYSQLDATABASE', 'smart_parking'),
 }
 
 TOTAL_SLOTS = 68
@@ -1122,8 +1114,8 @@ def _background_detection_loop():
 # Entry point
 # ---------------------------------------------------------------------------
 if __name__ == '__main__':
-    # Start background detection thread (only once in debug reloader)
-    if os.environ.get('WERKZEUG_RUN_MAIN') == 'true' or not app.debug:
-        detection_thread = threading.Thread(target=_background_detection_loop, daemon=True)
-        detection_thread.start()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Start background detection thread
+    detection_thread = threading.Thread(target=_background_detection_loop, daemon=True)
+    detection_thread.start()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
