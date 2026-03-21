@@ -1,8 +1,12 @@
 flask==3.0.0
 flask-cors==4.0.0
+<<<<<<< HEAD
 opencv-python==4.9.0.80
+=======
+opencv-python-headless==4.10.0.84
+>>>>>>> 457de72ffb80fbda3b1c0f038d0d3b41c403f01e
 scikit-learn==1.4.0
 mysql-connector-python==8.3.0
-numpy==1.26.3
-pandas==2.1.5
+numpy==1.26.4
+pandas==2.2.3
 reportlab==4.1.0

@@ -45,11 +45,21 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s  %(levelname)-8s  %(name)s  %(message)s')
 logger = logging.getLogger(__name__)
 
+# DB_CONFIG = {
+#     'host': os.getenv('DB_HOST', 'localhost'),
+#     'user': os.getenv('DB_USER', 'root'),
+#     'password': os.getenv('DB_PASSWORD', 'root'),
+#     'database': os.getenv('DB_NAME', 'smart_parking'),
+#     'ssl_disabled': False,
+# }
+
 DB_CONFIG = {
     'host': os.getenv('DB_HOST', 'localhost'),
+    'port': int(os.getenv('DB_PORT', '3306')),
     'user': os.getenv('DB_USER', 'root'),
     'password': os.getenv('DB_PASSWORD', 'root'),
     'database': os.getenv('DB_NAME', 'smart_parking'),
+    'ssl_disabled': False,
 }
 
 TOTAL_SLOTS = 68
