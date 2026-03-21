@@ -2,9 +2,6 @@
 -- Smart Parking System - Database Schema
 -- ============================================
 
-CREATE DATABASE IF NOT EXISTS smart_parking;
-USE smart_parking;
-
 -- -------------------------------------------
 -- Table: parking_slots
 -- Stores info about each parking slot
